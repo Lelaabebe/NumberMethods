@@ -1,0 +1,36 @@
+
+public class NumberMethods {
+
+    public static boolean isPrime(int n){
+         boolean prime = false;
+         if(n % 3 == 0 || n % 4 == 0 || n % 5 == 0 || n % 6 == 0 || n % 7 == 0 || n % 8 == 0 || n % 9 == 0){
+             prime = true;
+         }
+
+         return prime;
+    }
+
+    public static int divisorSum(int n){
+        int sum = 0;
+        if(!isPrime(n)){
+            return 3;
+        }else{
+            for(int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    sum = sum + i;
+                }
+            }
+        }
+        return sum - n;
+    }
+
+    public static boolean isStrong(int n){
+        boolean strong = false;
+        if(n > divisorSum(n)){
+            strong = true;
+        }
+
+        return strong;
+    }
+
+}
